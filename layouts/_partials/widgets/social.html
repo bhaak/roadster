@@ -10,14 +10,6 @@
 			</a>
 		</div>
 		{{- end }}
-		{{- with .Site.Params.widgets.social.twitter }}
-		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/{{ . }}" target="_blank">
-				{{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
-				<span>Twitter</span>
- 			</a>
- 		</div>
- 		{{- end }}
 		{{- with .Site.Params.widgets.social.x}}
 		<div class="widget-social__item widget__item">
 			<a class="widget-social__link widget__link btn" title="x" rel="noopener noreferrer" href="https://x.com/{{ . }}" target="_blank">
@@ -83,6 +75,15 @@
 			</a>
 		</div>
 		{{- end }}
+		{{- with .Site.Params.widgets.social.bluesky }}
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="BlueSky" rel="noopener noreferrer"
+				href="https://bsky.app/profile/{{ . }}" target="_blank">
+				{{ partial "svg/bluesky.svg" (dict "class" "widget-social__link-icon") }}
+				<span>BlueSky</span>
+			</a>
+		</div>
+		{{- end }}
 		{{- with .Site.Params.widgets.social.mastodon }}
 		<div class="widget-social__item widget__item">
 			<a class="widget-social__link widget__link btn" title="discourse" rel="noopener noreferrer"
@@ -92,12 +93,11 @@
 			</a>
 		</div>
 		{{- end }}
-		{{- with .Site.Params.widgets.social.bluesky }}
+		{{- with .Site.Params.widgets.social.twitter }}
 		<div class="widget-social__item widget__item">
-			<a class="widget-social__link widget__link btn" title="BlueSky" rel="noopener noreferrer"
-				href="https://bsky.app/profile/{{ . }}" target="_blank">
-				{{ partial "svg/bluesky.svg" (dict "class" "widget-social__link-icon") }}
-				<span>BlueSky</span>
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/{{ . }}" target="_blank">
+				{{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
+				<span>Twitter</span>
 			</a>
 		</div>
 		{{- end }}
