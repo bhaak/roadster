@@ -8,9 +8,30 @@
 {{- $fontFamilySecondary := .Site.Params.style.vars.fontFamilySecondary | default $fontMono -}}
 
 :root {
-	--foreground-color: {{ $foregroundColor }};
-	--background-color: {{ $backgroundColor }};
-	--highlight-color: {{ $highlightColor }};
+  --foreground-color: {{ $foregroundColor }};
+  --background-color: {{ $backgroundColor }};
+  --highlight-color: {{ $highlightColor }};
+}
+
+#theme-toggle #icon-sun {
+  display: inline;
+}
+#theme-toggle #icon-moon {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-color: {{ $backgroundColor }};
+    --background-color: {{ $foregroundColor }};
+  }
+
+  #theme-toggle #icon-sun {
+    display: none;
+  }
+  #theme-toggle #icon-moon {
+    display: inline;
+  }
 }
 
 *,
@@ -1221,6 +1242,20 @@ textarea {
 
   color: color-mix(in srgb, var(--foreground-color) 50%, var(--background-color) 50%);
   background-color: color-mix(in srgb, var(--foreground-color) 1%, var(--background-color));
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0;
+  font-size: 0;
+  border: 0;
+  color: color-mix(in srgb, var(--foreground-color) 50%, var(--background-color) 50%);
+  background-color: color-mix(in srgb, var(--foreground-color) 1%, var(--background-color));
+}
+#theme-toggle:hover {
+  color: var(--foreground-color);
 }
 
 /* Media Queries */

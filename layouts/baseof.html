@@ -22,6 +22,7 @@
 	</div>
 <script async defer src="{{ "js/menu.js" | relURL }}"></script>
 <script async defer src="{{ "js/code.js" | relURL }}"></script>
+<script async defer src="{{ "js/theme_toggle.js" | relURL }}"></script>
 {{ range .Site.Params.customJS -}}
 <script src="{{ . | relURL }}"></script>
 {{- end }}
