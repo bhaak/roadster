@@ -1201,6 +1201,28 @@ textarea {
 	text-decoration: underline;
 }
 
+.copy-button {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  z-index: 1;
+  border: 0px;
+  border-radius: 2px;
+
+  padding: 3px 8px;
+
+  top: 1rem;
+  right: 1rem;
+
+  color: color-mix(in srgb, var(--foreground-color) 50%, var(--background-color) 50%);
+  background-color: color-mix(in srgb, var(--foreground-color) 1%, var(--background-color));
+}
+
 /* Media Queries */
 @media screen and (max-width: 1475px) {
 	.container--outer {
