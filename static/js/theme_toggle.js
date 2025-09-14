@@ -1,36 +1,51 @@
 'use strict';
 
 (function () {
-	function swapForeBackgroundColor() {
-		const root = document.documentElement;
+	const KEY = 'theme'; // localStorage key
+	const root = document.documentElement;
+	const button = document.getElementById('theme-toggle');
 
-		// Get current values
-		const c1 = getComputedStyle(root).getPropertyValue('--foreground-color').trim();
-		const c2 = getComputedStyle(root).getPropertyValue('--background-color').trim();
-
-		// Swap
-		root.style.setProperty('--foreground-color', c2);
-		root.style.setProperty('--background-color', c1);
-	}
-
-	function swapVisibility(element) {
-		const computedStyle = getComputedStyle(element);
-		if (computedStyle.display == 'none') {
-			element.style.display = 'inline';
+	function setButtonAttributes(theme) {
+		if (theme === 'dark') {
+			button.setAttribute('aria-label', 'Switch to light mode');
 		} else {
-			element.style.display = 'none';
+			button.setAttribute('aria-label', 'Switch to dark mode');
+		}
+		root.setAttribute('data-theme', theme);
+		button.setAttribute('aria-pressed', theme === 'light');
+		try {
+			localStorage.setItem(KEY, theme);
+		} catch(e) {
+			// ignore
 		}
 	}
 
-	function swapToggleIcons() {
-		swapVisibility(document.getElementById('icon-sun'));
-		swapVisibility(document.getElementById('icon-moon'));
+	// Determine initial theme: localStorage -> prefers-color-scheme -> default light
+	function getPreferredTheme() {
+		try {
+			const stored = localStorage.getItem(KEY);
+			if (stored === 'light' || stored === 'dark') {
+				return stored;
+			}
+		} catch(e) {
+			// localStorage blocked
+		}
+
+		const mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+		if (mq && mq.matches) {
+			return 'dark';
+		}
+		return 'light';
 	}
 
-	// Toggle on click
-	const button = document.getElementById('theme-toggle');
 	button.addEventListener('click', () => {
-		swapForeBackgroundColor();
-		swapToggleIcons();
+		const pressed = button.getAttribute('aria-pressed');
+		const theme = (pressed === 'true' ? 'dark' : 'light');
+		setButtonAttributes(theme);
 	});
+
+	const initial = getPreferredTheme();
+	if (initial === 'light') {
+		setButtonAttributes(initial);
+	}
 })();

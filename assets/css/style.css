@@ -20,12 +20,12 @@
   display: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground-color: {{ $backgroundColor }};
-    --background-color: {{ $foregroundColor }};
-  }
+:root[data-theme="light"] {
+  --foreground-color: {{ $backgroundColor }};
+  --background-color: {{ $foregroundColor }};
+}
 
+[data-theme="light"] {
   #theme-toggle #icon-sun {
     display: none;
   }
