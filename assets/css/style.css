@@ -11,6 +11,7 @@
   --foreground-color: {{ $foregroundColor }};
   --background-color: {{ $backgroundColor }};
   --highlight-color: {{ $highlightColor }};
+  --border-color: color-mix(in srgb, var(--foreground-color) 50%, var(--background-color));
 }
 
 #theme-toggle #icon-sun {
@@ -467,7 +468,7 @@ select {
 	font-weight: 700;
 	line-height: 1;
 	color: var(--highlight-color);
-	border-top: 1px solid #ebebeb;
+	border-top: 1px solid var(--border-color);
 }
 
 .divider {
@@ -802,7 +803,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	font-weight: 700;
 	color: #7a8288;
 	background-color: var(--background-color);
-	border-color: #ebebeb;
+	border-color: var(--border-color);
 	border-style: solid;
 	border-top-width: 1px;
 	border-right-width: 1px;
@@ -855,7 +856,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	display: block;
 	padding: 5px 10px;
 	color: var(--highlight-color);
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--border-color);
 }
 
 .toc__menu a:hover {
@@ -867,8 +868,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 25px 0;
 	margin-bottom: 25px;
 	line-height: 1.5;
-	border-top: 1px solid #ebebeb;
-	border-bottom: 1px solid #ebebeb;
+	border-top: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
 }
 
 .authorbox__singleAuthor {
@@ -881,7 +882,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	float: left;
 	padding: 3px;
 	margin: 0 25px 0 0;
-	border: 1px solid #ebebeb;
+	border: 1px solid var(--border-color);
 }
 
 .authorbox__header {
@@ -901,7 +902,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding-bottom: 1.25rem;
 	margin-bottom: 20px;
 	margin-bottom: 1.25rem;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--border-color);
 }
 
 .list__header {
@@ -959,7 +960,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	margin-bottom: 25px;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--border-color);
 }
 
 .pager__subtitle {
@@ -1041,7 +1042,7 @@ input {
 	font-size: 12px;
 	vertical-align: middle;
 	background-color: color-mix(in srgb, var(--foreground-color) 10%, var(--background-color) 90%);
-	border: 1px solid #ebebeb;
+	border: 1px solid var(--border-color);
 	transition: all .25s ease-in-out;
 }
 
@@ -1112,7 +1113,7 @@ textarea {
 .widget__item {
 	display: block;
 	padding: 5px 0;
-	border-bottom: 1px dotted #ebebeb;
+	border-bottom: 1px dotted var(--border-color);
 }
 
 .widget__item:first-child {
@@ -1146,7 +1147,7 @@ textarea {
 	cursor: pointer;
 	color: var(--foreground-color);
 	background-color: var(--background-color);
-	border: 1px solid #ebebeb;
+	border: 1px solid var(--border-color);
 	outline-offset: -2px;
 	transition: none;
 	-webkit-appearance: none;
