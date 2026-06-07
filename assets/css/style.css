@@ -12,11 +12,13 @@
   --background-color: {{ $backgroundColor }};
   --highlight-color: {{ $highlightColor }};
   --border-color: color-mix(in srgb, var(--foreground-color) 50%, var(--background-color));
+  --extreme-color: black;
 }
 
 :root[data-theme="light"] {
   --foreground-color: {{ $backgroundColor }};
   --background-color: {{ $foregroundColor }};
+  --extreme-color: white;
 }
 
 #theme-toggle #icon-sun {
@@ -76,7 +78,7 @@ html {
 	font-size: 100%;
 	-ms-text-size-adjust: none;
 	-webkit-text-size-adjust: none;
-	color-scheme: light;
+	color-scheme: dark;
 }
 
 :root {
@@ -208,13 +210,13 @@ textarea {
 .btn {
 	padding: 5px 10px;
 	font-weight: 700;
-	color: var(--color-inverse-text);
+	color: var(--foreground-color);
 	white-space: pre-line;
-	background: var(--color-menu-bg);
+	background-color: var(--extreme-color);
 }
 
 .btn:hover {
-	color: var(--color-inverse-text);
+	color: var(--foreground-color);
 	background-color: var(--highlight-color);
 }
 

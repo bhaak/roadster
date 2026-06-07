@@ -20,7 +20,7 @@
 		}
 	}
 
-	// Determine initial theme: localStorage -> prefers-color-scheme -> default light
+	// Determine initial theme: localStorage -> prefers-color-scheme -> default dark
 	function getPreferredTheme() {
 		try {
 			const stored = localStorage.getItem(KEY);
@@ -35,7 +35,7 @@
 		if (mq && mq.matches) {
 			return 'dark';
 		}
-		return 'light';
+		return 'dark';
 	}
 
 	button.addEventListener('click', () => {
