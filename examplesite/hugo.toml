@@ -16,6 +16,15 @@ theme = "roadster"
   [services.disqus]
     shortname = 'your-disqus-shortname' # Enable Disqus by entering your Disqus shortname
 
+[permalinks]
+  [permalinks.term]
+    tags = '/:slug/'
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  author = "authors"
+
 # Goldmark renders raw HTML mixed within the Markdown
 [markup.goldmark.renderer]
   unsafe = true # N.B. This is unsafe unless the content is under your control.  Set to false if you don't mix HTML with markdown.
@@ -31,10 +40,9 @@ theme = "roadster"
   mainSections = ["post", "docs"]
   CustomHeadHTML = "" # Add custom HTML in the <head> 
 
-[params.author]
-  name = "John Doe"
-  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
-  avatar = "img/avatar.png"
+# Authorbox data comes from author content bundles.
+# See examplesite/content/authors/john-doe/_index.md and
+# examplesite/content/docs/customization.md for the supported setup.
 
 [Params.logo]
   subtitle = "Streamlined design, enhanced functionality" # Logo subtitle
